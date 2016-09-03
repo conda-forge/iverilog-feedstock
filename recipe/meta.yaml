@@ -17,7 +17,7 @@ source:
     - remove_static_build_path.patch
 
 build:
-  number: 1
+  number: 2
   skip: true  # [win]
   detect_binary_files_with_prefix: True
 
@@ -28,7 +28,7 @@ requirements:
     - gperf
     - bison
     - flex
-    - readline
+    - readline 6.2*
 
 test:
   commands:
