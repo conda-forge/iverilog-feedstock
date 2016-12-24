@@ -17,7 +17,7 @@ source:
     - remove_static_build_path.patch
 
 build:
-  number: 2
+  number: 3
   skip: true  # [win]
   detect_binary_files_with_prefix: True
 
