@@ -1,4 +1,4 @@
-{% set version = "10.1" %}
+{% set version = "10_2" %}
 {% set git_tag = "v10_1" %}
 {% set sha256 = "f4ff7990ae9ed87fad0b486586b03f6902de0dfb9de5ecb07ef32c20487c7dc6" %}
 
@@ -17,7 +17,7 @@ source:
     - remove_static_build_path.patch
 
 build:
-  number: 3
+  number: 0
   skip: true  # [win]
   detect_binary_files_with_prefix: True
 
