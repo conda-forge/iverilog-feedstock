@@ -23,12 +23,14 @@ build:
 
 requirements:
   build:
-    - toolchain
     - autoconf
+    - {{ compiler('c') }}
+    - {{ compiler('cxx') }}
+  host:
     - gperf
     - bison
     - flex
-    - readline 6.2*
+    - readline
 
 test:
   commands:
