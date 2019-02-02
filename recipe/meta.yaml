@@ -1,6 +1,6 @@
-{% set version = "10.1" %}
-{% set git_tag = "v10_1" %}
-{% set sha256 = "f4ff7990ae9ed87fad0b486586b03f6902de0dfb9de5ecb07ef32c20487c7dc6" %}
+{% set version = "10.2" %}
+{% set git_tag = "v10_2" %}
+{% set sha256 = "f54d91821223c71c70f4735a1fb2af39c62efbccdeb9b0060ea1cf9c67647ee3" %}
 
 package:
   name: iverilog
@@ -17,7 +17,7 @@ source:
     - remove_static_build_path.patch
 
 build:
-  number: 1003
+  number: 0
   skip: true  # [win]
   detect_binary_files_with_prefix: True
 
@@ -31,6 +31,7 @@ requirements:
     - bison
     - flex
     - readline
+    - zlib
 
 test:
   commands:
