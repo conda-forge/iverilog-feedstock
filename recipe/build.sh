@@ -8,7 +8,9 @@
 #
 # source activate "${CONDA_DEFAULT_ENV}"
 
+export CXXFLAGS="$CXXFLAGS -std=c++14"
+
 autoconf
-./configure --prefix=$PREFIX -std=c++14
+./configure --prefix=$PREFIX
 make
 make check && make install
