@@ -9,6 +9,6 @@
 # source activate "${CONDA_DEFAULT_ENV}"
 
 autoconf
-./configure --prefix=$PREFIX --std=c++14
+./configure --prefix=$PREFIX -std=c++14
 make
 make check && make install
