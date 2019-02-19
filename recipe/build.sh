@@ -6,9 +6,9 @@
 #
 # https://github.com/conda/conda-build/issues/910
 #
-source activate "${CONDA_DEFAULT_ENV}"
+# source activate "${CONDA_DEFAULT_ENV}"
 
 autoconf
-./configure --prefix=$PREFIX
+./configure --prefix=$PREFIX --std=c++14
 make
 make check && make install
