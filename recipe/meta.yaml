@@ -30,7 +30,6 @@ requirements:
 
 test:
   commands:
-    - iverilog -help
     - test -f "${PREFIX}/bin/iverilog"  # [unix]
     - test -f "${PREFIX}/bin/iverilog-vpi"  # [unix]
     - test -f "${PREFIX}/bin/vvp"  # [unix]
