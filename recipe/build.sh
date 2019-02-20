@@ -6,7 +6,9 @@
 #
 # https://github.com/conda/conda-build/issues/910
 #
-source activate "${CONDA_DEFAULT_ENV}"
+# source activate "${CONDA_DEFAULT_ENV}"
+
+export CXXFLAGS="$CXXFLAGS -std=c++14"
 
 autoconf
 ./configure --prefix=$PREFIX
