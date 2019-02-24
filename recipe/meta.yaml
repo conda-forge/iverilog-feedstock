@@ -32,6 +32,7 @@ requirements:
     - bison  # [not win]
     - flex  # [not win]
     - readline  # [not win]
+    - m2-libreadline  # [win]
     - m2-gperf  # [win]
     - m2-bison  # [win]
     - m2-flex  # [win]
