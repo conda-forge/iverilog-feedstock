@@ -25,6 +25,7 @@ requirements:
     - m2-make  # [win]
     - m2-grep  # [win]
     - m2-bison  # [win]
+    - m2-sed  # [win]
     - m2-bash  # [win]
   host:
     - gperf  # [not win]
