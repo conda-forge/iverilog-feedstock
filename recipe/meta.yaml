@@ -11,7 +11,7 @@ source:
   sha256: f54d91821223c71c70f4735a1fb2af39c62efbccdeb9b0060ea1cf9c67647ee3
 
 build:
-  number: 1
+  number: 2
   detect_binary_files_with_prefix: True
 
 requirements:
@@ -25,6 +25,7 @@ requirements:
     - m2-make  # [win]
     - m2-grep  # [win]
     - m2-bison  # [win]
+    - m2-sed  # [win]
     - m2-bash  # [win]
   host:
     - gperf  # [not win]
@@ -33,12 +34,7 @@ requirements:
     - readline  # [not win]
     - m2-libreadline  # [win]
     - m2-gperf  # [win]
-    - m2-bison  # [win]
     - m2-flex  # [win]
-    - m2w64-binutils  # [win]
-    - m2-make  # [win]
-    - m2-sed  # [win]
-    - m2w64-gcc  # [win]
     - zlib
 
 test:
