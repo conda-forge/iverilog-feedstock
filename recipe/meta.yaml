@@ -33,12 +33,7 @@ requirements:
     - readline  # [not win]
     - m2-libreadline  # [win]
     - m2-gperf  # [win]
-    - m2-bison  # [win]
     - m2-flex  # [win]
-    - m2w64-binutils  # [win]
-    - m2-make  # [win]
-    - m2-sed  # [win]
-    - m2w64-gcc  # [win]
     - zlib
 
 test:
