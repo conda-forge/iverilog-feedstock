@@ -10,7 +10,7 @@ source:
   patches: 5bb6c7f53a6ab5b44c282ba5b118927fd4f17e4f.patch  # [not win]
 
 build:
-  number: 4
+  number: 3
   detect_binary_files_with_prefix: True
 
 requirements:
