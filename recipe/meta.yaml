@@ -9,9 +9,10 @@ source:
   fn: {{ git_tag }}.tar.gz
   url: https://github.com/steveicarus/iverilog/archive/{{ git_tag }}.tar.gz
   sha256: f54d91821223c71c70f4735a1fb2af39c62efbccdeb9b0060ea1cf9c67647ee3
+  patches: 5bb6c7f53a6ab5b44c282ba5b118927fd4f17e4f.patch
 
 build:
-  number: 3
+  number: 4
   detect_binary_files_with_prefix: True
 
 requirements:
