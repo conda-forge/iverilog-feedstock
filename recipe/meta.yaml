@@ -1,4 +1,4 @@
-{% set version = "10.2" %}
+{% set version = "10.3" %}
 
 package:
   name: iverilog
@@ -6,11 +6,10 @@ package:
 
 source:
   url: https://github.com/steveicarus/iverilog/archive/v{{ version | replace(".", "_") }}.tar.gz
-  sha256: f54d91821223c71c70f4735a1fb2af39c62efbccdeb9b0060ea1cf9c67647ee3
-  patches: 5bb6c7f53a6ab5b44c282ba5b118927fd4f17e4f.patch  # [not win]
+  sha256: 4b884261645a73b37467242d6ae69264fdde2e7c4c15b245d902531efaaeb234
 
 build:
-  number: 4
+  number: 0
   detect_binary_files_with_prefix: True
 
 requirements:
