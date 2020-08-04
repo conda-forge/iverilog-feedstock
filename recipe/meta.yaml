@@ -1,4 +1,4 @@
-{% set version = "10.3" %}
+{% set version = "20150603" %}
 
 package:
   name: iverilog
@@ -6,11 +6,11 @@ package:
 
 source:
   url: https://github.com/steveicarus/iverilog/archive/v{{ version | replace(".", "_") }}.tar.gz
-  sha256: 4b884261645a73b37467242d6ae69264fdde2e7c4c15b245d902531efaaeb234
+  sha256: 7c5f22fb50039130161d9f531361c077a637b89475915130b0163505d16a462d
 
 build:
   number: 0
-  detect_binary_files_with_prefix: True
+  detect_binary_files_with_prefix: true
 
 requirements:
   build:
@@ -51,7 +51,11 @@ test:
 about:
   home: http://iverilog.icarus.com/home
   license: GPL-2.0
-  summary: 'Icarus Verilog is intended to compile ALL of the Verilog HDL as described in the IEEE-1364 standard.'
+  license_file: 
+    - COPYING.lesser 
+    - COPYING 
+
+  summary: Icarus Verilog is intended to compile ALL of the Verilog HDL as described in the IEEE-1364 standard.
 
 extra:
   recipe-maintainers:
