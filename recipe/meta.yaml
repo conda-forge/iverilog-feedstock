@@ -50,7 +50,8 @@ test:
 
 about:
   home: http://iverilog.icarus.com/home
-  license: GPL-2.0
+  license: GPL-2.0-only
+  license_file: COPYING
   summary: 'Icarus Verilog is intended to compile ALL of the Verilog HDL as described in the IEEE-1364 standard.'
 
 extra:
