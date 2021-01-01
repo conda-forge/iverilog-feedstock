@@ -11,6 +11,8 @@ if [ ! -z ${LIBRARY_PREFIX+x} ]; then
 else
     ./configure --prefix=$PREFIX
 fi
+bison --version
+exit 1234
 make -j$CPU_COUNT
 make check -j$CPU_COUNT
 make install -j$CPU_COUNT
