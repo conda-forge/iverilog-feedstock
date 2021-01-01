@@ -6,21 +6,14 @@ if [ $(uname) == Linux ]; then
 fi
 
 autoconf
-
+mkdir build
+cd build
 if [ ! -z ${LIBRARY_PREFIX+x} ]; then
-    ./configure --prefix=$LIBRARY_PREFIX
+    ../configure --prefix=$LIBRARY_PREFIX
 else
-    ./configure --prefix=$PREFIX
+    ../configure --prefix=$PREFIX
 fi
 
 make -j$CPU_COUNT
-
-if [ -d "${PREFIX}/lib/ivl" ]; then
-    echo "${PREFIX}/lib/ivl path found!"
-else
-    echo "${PREFIX}/lib/ivl path NOT found!"
-    exit 1234
-fi
-
 make check -j$CPU_COUNT
 make install -j$CPU_COUNT
