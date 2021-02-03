@@ -14,6 +14,6 @@ else
     ../configure --prefix=$PREFIX
 fi
 
-make -j$CPU_COUNT
-make install -j$CPU_COUNT
+make
+make install
 make check -j$CPU_COUNT
