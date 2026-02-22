@@ -14,6 +14,8 @@ else
     ../configure --prefix=$PREFIX
 fi
 
-make
+[[ "$target_platform" == "win-64" ]] && patch_libtool
+
+make -j$CPU_COUNT
 make install
 make check -j$CPU_COUNT
