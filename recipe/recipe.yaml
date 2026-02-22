@@ -16,11 +16,11 @@ build:
 
 requirements:
   build:
-    - if: not win
-      then: autoconf
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
+    - if: not win
+      then: autoconf
     - if: win
       then:
         - autotools_clang_conda
