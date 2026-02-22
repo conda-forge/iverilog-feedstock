@@ -1,0 +1,88 @@
+schema_version: 1
+
+context:
+  version: 11.0
+
+package:
+  name: iverilog
+  version: ${{ version }}
+
+source:
+  url: https://github.com/steveicarus/iverilog/archive/v${{ version | replace(".", "_") }}.tar.gz
+  sha256: 6327fb900e66b46803d928b7ca439409a0dc32731d82143b20387be0833f1c95
+
+build:
+  number: 1
+
+requirements:
+  build:
+    - if: not win
+      then: autoconf
+    - if: not win
+      then: ${{ compiler('c') }}
+    - if: not win
+      then: ${{ compiler('cxx') }}
+    - if: win
+      then: ${{ compiler('m2w64_c') }}
+    - if: win
+      then: ${{ compiler('m2w64_cxx') }}
+    - if: win
+      then: m2-autoconf
+    - if: win
+      then: m2-make
+    - if: win
+      then: m2-grep
+    - if: win
+      then: m2-bison
+    - if: win
+      then: m2-sed
+    - if: win
+      then: m2-bash
+  host:
+    - if: not win
+      then: gperf >=3
+    - if: not win
+      then: bison
+    - if: not win
+      then: flex
+    - if: not win
+      then: readline
+    - if: win
+      then: m2-libreadline
+    - if: win
+      then: m2-gperf
+    - if: win
+      then: m2-flex
+    - zlib
+
+tests:
+  - script:
+      - if: unix
+        then: test -f "${PREFIX}/bin/iverilog"
+      - if: unix
+        then: test -f "${PREFIX}/bin/iverilog-vpi"
+      - if: unix
+        then: test -f "${PREFIX}/bin/vvp"
+      - if: unix
+        then: test -f "${PREFIX}/lib/libveriuser.a"
+      - if: unix
+        then: test -f "${PREFIX}/lib/libvpi.a"
+      - if: unix
+        then: test -f "${PREFIX}/lib/ivl/ivl"
+      - if: unix
+        then: test -f "${PREFIX}/lib/ivl/ivlpp"
+      - if: unix
+        then: test -f "${PREFIX}/lib/ivl/vhdlpp"
+      - iverilog -V
+      - vvp -V
+
+about:
+  license: GPL-2.0-only
+  license_file: COPYING
+  summary: Icarus Verilog is intended to compile ALL of the Verilog HDL as described in the IEEE-1364 standard.
+  homepage: http://iverilog.icarus.com/home
+
+extra:
+  recipe-maintainers:
+    - tfors
+    - carlodri
