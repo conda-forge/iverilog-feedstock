@@ -21,9 +21,9 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
-    - autotools_clang_conda # [win]
     - if: win
       then:
+        - autotools_clang_conda
         - m2-bison
   host:
     - if: not win
