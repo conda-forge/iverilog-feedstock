@@ -1,11 +1,2 @@
-COPY %RECIPE_DIR%\build.sh build.sh
-
-set MSYSTEM=MINGW%ARCH%
-set MSYS2_PATH_TYPE=inherit
-set CHERE_INVOKING=1
-
-bash -lc "ln -s ${LOCALAPPDATA}/Temp /tmp"
-bash -lc "./build.sh"
-if errorlevel 1 exit 1
-
-exit 0
+call %BUILD_PREFIX%\Library\bin\run_autotools_clang_conda_build.bat
+if %ERRORLEVEL% neq 0 exit /b 1

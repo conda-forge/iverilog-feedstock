@@ -18,61 +18,39 @@ requirements:
   build:
     - if: not win
       then: autoconf
-    - if: not win
-      then: ${{ compiler('c') }}
-    - if: not win
-      then: ${{ compiler('cxx') }}
+    - ${{ compiler('c') }}
+    - ${{ compiler('cxx') }}
+    - ${{ stdlib('c') }}
+    - autotools_clang_conda # [win]
     - if: win
-      then: ${{ compiler('m2w64_c') }}
-    - if: win
-      then: ${{ compiler('m2w64_cxx') }}
-    - if: win
-      then: m2-autoconf
-    - if: win
-      then: m2-make
-    - if: win
-      then: m2-grep
-    - if: win
-      then: m2-bison
-    - if: win
-      then: m2-sed
-    - if: win
-      then: m2-bash
+      then:
+        - m2-bison
   host:
     - if: not win
-      then: gperf >=3
-    - if: not win
-      then: bison
-    - if: not win
-      then: flex
-    - if: not win
-      then: readline
+      then:
+        - gperf >=3
+        - bison
+        - flex
+        - readline
     - if: win
-      then: m2-libreadline
-    - if: win
-      then: m2-gperf
-    - if: win
-      then: m2-flex
+      then:
+        - m2-libreadline
+        - m2-gperf
+        - m2-flex
     - zlib
 
 tests:
   - script:
       - if: unix
-        then: test -f "${PREFIX}/bin/iverilog"
-      - if: unix
-        then: test -f "${PREFIX}/bin/iverilog-vpi"
-      - if: unix
-        then: test -f "${PREFIX}/bin/vvp"
-      - if: unix
-        then: test -f "${PREFIX}/lib/libveriuser.a"
-      - if: unix
-        then: test -f "${PREFIX}/lib/libvpi.a"
-      - if: unix
-        then: test -f "${PREFIX}/lib/ivl/ivl"
-      - if: unix
-        then: test -f "${PREFIX}/lib/ivl/ivlpp"
-      - if: unix
-        then: test -f "${PREFIX}/lib/ivl/vhdlpp"
+        then:
+          - test -f "${PREFIX}/bin/iverilog"
+          - test -f "${PREFIX}/bin/iverilog-vpi"
+          - test -f "${PREFIX}/bin/vvp"
+          - test -f "${PREFIX}/lib/libveriuser.a"
+          - test -f "${PREFIX}/lib/libvpi.a"
+          - test -f "${PREFIX}/lib/ivl/ivl"
+          - test -f "${PREFIX}/lib/ivl/ivlpp"
+          - test -f "${PREFIX}/lib/ivl/vhdlpp"
       - iverilog -V
       - vvp -V
 
