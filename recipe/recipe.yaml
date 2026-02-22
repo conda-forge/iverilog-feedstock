@@ -19,6 +19,7 @@ requirements:
     - ${{ compiler('c') }}
     - ${{ compiler('cxx') }}
     - ${{ stdlib('c') }}
+    - make
     - if: not win
       then: autoconf
     - if: win
