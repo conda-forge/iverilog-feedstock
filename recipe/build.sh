@@ -1,6 +1,7 @@
 #!/bin/bash
 set -euxo pipefail
 
+autoconf
 mkdir build
 cd build
 
