@@ -11,7 +11,7 @@ cd build
 # if [ ! -z ${LIBRARY_PREFIX+x} ]; then
 #     ../configure --prefix=$LIBRARY_PREFIX
 # else
-#     ../configure --prefix=$PREFIX
+../configure --prefix=$PREFIX
 # fi
 
 [[ "$target_platform" == "win-64" ]] && patch_libtool
