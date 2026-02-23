@@ -1,0 +1,14 @@
+diff --git a/driver/main.c b/driver/main.c
+index 3efee7f4f..8136ed226 100644
+--- a/driver/main.c
++++ b/driver/main.c
+@@ -20,6 +20,9 @@ const char COPYRIGHT[] =
+ # include "config.h"
+ # include "version_base.h"
+ # include "version_tag.h"
++#if defined(__APPLE__)
++#include <mach-o/dyld.h>
++#endif
+ 
+ const char NOTICE[] =
+ "  This program is free software; you can redistribute it and/or modify\n"
