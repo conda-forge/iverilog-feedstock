@@ -11,8 +11,9 @@ source:
   url: https://github.com/steveicarus/iverilog/archive/v${{ version | replace(".", "_") }}.tar.gz
   sha256: a68cb1ef7c017ef090ebedb2bc3e39ef90ecc70a3400afb4aa94303bc3beaa7d
   patches:
-    - if: osx
-      then: patch_macos_mach-o.patch
+    - if: osx-64
+      then:
+        - patch_macos_mach-o.patch
 
 build:
   number: 1
