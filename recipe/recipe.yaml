@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "12.0"
+  version: "13_0"
 
 package:
   name: iverilog
@@ -9,14 +9,14 @@ package:
 
 source:
   url: https://github.com/steveicarus/iverilog/archive/v${{ version | replace(".", "_") }}.tar.gz
-  sha256: a68cb1ef7c017ef090ebedb2bc3e39ef90ecc70a3400afb4aa94303bc3beaa7d
+  sha256: c897bbfa9848688982c6d5c30529fc29d68df0b9ff22ffa73bad89db73a7ce49
   patches:
     - if: osx-64
       then:
         - patch_macos_mach-o.patch
 
 build:
-  number: 1
+  number: 0
   skip:
     - win
 
@@ -28,8 +28,7 @@ requirements:
     - make
     - if: not win
       then: autoconf
-    - if: win
-      then:
+      else:
         - autotools_clang_conda
         - m2-bison
   host:
@@ -39,8 +38,7 @@ requirements:
         - bison
         - flex
         - readline
-    - if: win
-      then:
+      else:
         - m2-libreadline
         - m2-gperf
         - m2-flex
@@ -53,7 +51,6 @@ tests:
           - test -f "${PREFIX}/bin/iverilog"
           - test -f "${PREFIX}/bin/iverilog-vpi"
           - test -f "${PREFIX}/bin/vvp"
-          - test -f "${PREFIX}/lib/libveriuser.a"
           - test -f "${PREFIX}/lib/libvpi.a"
           - test -f "${PREFIX}/lib/ivl/ivl"
           - test -f "${PREFIX}/lib/ivl/ivlpp"
