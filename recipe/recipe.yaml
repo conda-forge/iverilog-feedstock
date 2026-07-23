@@ -17,8 +17,6 @@ source:
 
 build:
   number: 0
-  skip:
-    - win
 
 requirements:
   build:
@@ -55,6 +53,13 @@ tests:
           - test -f "${PREFIX}/lib/ivl/ivl"
           - test -f "${PREFIX}/lib/ivl/ivlpp"
           - test -f "${PREFIX}/lib/ivl/vhdlpp"
+      - if: win
+        then:
+          - if not exist "%LIBRARY_BIN%\\iverilog.exe" exit 1
+          - if not exist "%LIBRARY_BIN%\\vvp.exe" exit 1
+          - if not exist "%LIBRARY_LIB%\\ivl\\ivl.exe" exit 1
+          - if not exist "%LIBRARY_LIB%\\ivl\\ivlpp.exe" exit 1
+          - if not exist "%LIBRARY_LIB%\\ivl\\vhdlpp.exe" exit 1
       - iverilog -V
       - vvp -V
 
