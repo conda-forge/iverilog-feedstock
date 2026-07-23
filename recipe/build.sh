@@ -1,6 +1,10 @@
 #!/bin/bash
 set -euxo pipefail
 
+if [[ "${target_platform}" != "win-"* ]]; then
+    cp ${BUILD_PREFIX}/share/gnuconfig/config.* .
+fi
+
 autoconf
 mkdir build
 cd build
