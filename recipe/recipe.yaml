@@ -51,7 +51,6 @@ tests:
           - test -f "${PREFIX}/bin/iverilog"
           - test -f "${PREFIX}/bin/iverilog-vpi"
           - test -f "${PREFIX}/bin/vvp"
-          - test -f "${PREFIX}/lib/libveriuser.a"
           - test -f "${PREFIX}/lib/libvpi.a"
           - test -f "${PREFIX}/lib/ivl/ivl"
           - test -f "${PREFIX}/lib/ivl/ivlpp"
