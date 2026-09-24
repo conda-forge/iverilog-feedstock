@@ -17,32 +17,36 @@ source:
 
 build:
   number: 0
-  skip:
-    - win
 
 requirements:
   build:
-    - ${{ compiler('c') }}
-    - ${{ compiler('cxx') }}
-    - ${{ stdlib('c') }}
-    - make
-    - if: not win
-      then: autoconf
+    - if: win
+      then:
+        - ${{ compiler('m2w64_c') }}
+        - ${{ compiler('m2w64_cxx') }}
+        - ${{ stdlib('m2w64_c') }}
+        - m2-autoconf
+        - m2-make
+        - m2-bash
+        - m2-coreutils
+        - m2-base
+        - m2-sed
+        - m2-grep
+        - winflexbison
       else:
-        - autotools_clang_conda
-        - m2-bison
+        - ${{ compiler('c') }}
+        - ${{ compiler('cxx') }}
+        - ${{ stdlib('c') }}
+        - make
+        - autoconf
   host:
+    - zlib
     - if: not win
       then:
         - gperf >=3
         - bison
         - flex
         - readline
-      else:
-        - m2-libreadline
-        - m2-gperf
-        - m2-flex
-    - zlib
 
 tests:
   - script:
@@ -55,6 +59,13 @@ tests:
           - test -f "${PREFIX}/lib/ivl/ivl"
           - test -f "${PREFIX}/lib/ivl/ivlpp"
           - test -f "${PREFIX}/lib/ivl/vhdlpp"
+      - if: win
+        then:
+          - if not exist "%LIBRARY_BIN%\\iverilog.exe" exit 1
+          - if not exist "%LIBRARY_BIN%\\vvp.exe" exit 1
+          - if not exist "%LIBRARY_LIB%\\ivl\\ivl.exe" exit 1
+          - if not exist "%LIBRARY_LIB%\\ivl\\ivlpp.exe" exit 1
+          - if not exist "%LIBRARY_LIB%\\ivl\\vhdlpp.exe" exit 1
       - iverilog -V
       - vvp -V
 
