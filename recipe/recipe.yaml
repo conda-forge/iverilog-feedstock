@@ -66,8 +66,20 @@ tests:
           - if not exist "%LIBRARY_LIB%\\ivl\\ivl.exe" exit 1
           - if not exist "%LIBRARY_LIB%\\ivl\\ivlpp.exe" exit 1
           - if not exist "%LIBRARY_LIB%\\ivl\\vhdlpp.exe" exit 1
+          - if not exist "%LIBRARY_LIB%\\libvpi.a" exit 1
       - iverilog -V
       - vvp -V
+  - files:
+      recipe:
+        - tests/hello.v
+    script:
+      - iverilog -o hello.vvp tests/hello.v
+      - vvp hello.vvp
+      - if: unix
+        then:
+          - vvp hello.vvp | grep -q "Hello, iverilog"
+        else:
+          - vvp hello.vvp | findstr /C:"Hello, iverilog"
 
 about:
   license: GPL-2.0-only
