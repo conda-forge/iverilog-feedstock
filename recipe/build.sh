@@ -29,7 +29,7 @@ fi
 mkdir -p build
 cd build
 
-../configure --prefix="$prefix" --host="${HOST:-${CONDA_TOOLCHAIN_HOST:-$(${CC:-gcc} -dumpmachine)}}" || { echo '===CONFIG.LOG==='; cat config.log 2>&1; exit 1; }
+../configure --prefix="$prefix" --host="${HOST:-${CONDA_TOOLCHAIN_HOST:-$(${CC:-gcc} -dumpmachine)}}"
 
 make -j"$CPU_COUNT"
 make install
